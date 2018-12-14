@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package inventory;
 
-import security.Hasher;
 /**
  *
  * @author Andreas
  */
-public class User {
-    String email; 
-    String password; 
-    public User(String email, String password){
-        
+public class Inventory {
+    
+    
+    
+    public class Validation{
+        public Boolean verify(String text){
+            throw new UnsupportedOperationException("verify");
+        }
     }
 }
-
