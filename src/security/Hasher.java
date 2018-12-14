@@ -11,7 +11,7 @@ package security;
  */
 public class Hasher {
     
-    public static  hash(){
+    public static void hash(){
         
     }
 }
