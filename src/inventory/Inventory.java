@@ -19,8 +19,9 @@ package inventory;
 
 public class Inventory {
     public class Validation{
-        public Boolean verify(String text){
+        public void verify(String text){
             throw new UnsupportedOperationException("verify");
         }
+        
     }
 }
