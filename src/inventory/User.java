@@ -17,6 +17,7 @@
 
 package inventory;
 
+import exceptions.InvalidEmailException;
 import security.Hasher;
 /**
  *
@@ -25,8 +26,16 @@ import security.Hasher;
 public class User {
     String email; 
     String password; 
-    public User(String email, String password){
-        
+    
+    public User(String email, String password)
+        throws Exception{
+        char[] invalids = Inventory.Validation.verify(email);
+        if(invalids.length==0){
+            this.email=email;
+            this.password=password;
+        }else{
+            throw new InvalidEmailException(invalids);
+        }
     }
 }
 
