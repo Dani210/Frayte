@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 owner
+ * Copyright (C) 2019 owner
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,37 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package ui;
+package controlling;
 
-import java.io.IOException;
+import gui.MainFrame;
 
-public class CLI
+public class Controller
 {
-
-    private static final Menu menu;
-
-    static {
-        menu = new Menu();
-    }
-
     public static void main(String[] args)
     {
-        Menu.Selection selection = Menu.Selection.LOGOUT;
-
-        do {
-            menu.printMenu();
-
-            try {
-                selection = menu.getSelection();
-            } catch (IOException ioe) {
-                System.out.println(ioe);
-            } catch(NumberFormatException nfe){
-                System.out.println(nfe);
-            } catch(Exception e){
-                System.out.println("Unknown error encountered.");
-            }
-
-        } while (selection != Menu.Selection.valueOf("LOGOUT"));
+        Thread gui = new Thread(new MainFrame());
+        
+        gui.setPriority(Thread.NORM_PRIORITY);
+        
+        gui.start();
     }
-
 }

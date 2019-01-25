@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package ui;
+package ui_components;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -48,7 +48,8 @@ public class Menu
                 }
             }
         }catch(NumberFormatException nfe){
-            throw new NumberFormatException("Please enter a valid number" + "\nError at " + nfe.getCause());
+            throw new NumberFormatException("Please enter a valid number." +
+                    "\nError: " + nfe.getMessage());
         }
         
         throw new IOException("No such option known.");
